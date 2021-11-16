@@ -1,0 +1,16 @@
+JSX мы комментируем с помощью { /*  */ }:
+{ /* <Header /> */ }
+plugin Auto Import (author - steoates):
+выделяю название компонента (в разметке JSX), жму Ctrl+Space, выбираю одноименный компонент (из нужного файла js), жму Enter. и тогда в начале файла автоматически добавляется строка импорта этого компонента.
+
+import Header from './Header.js';
+import Technologies from './Technologies.js';
+
+TSX - как JSX, только на TypeScript
+
+spell - произносить; заклинание
+spell checking - проверка орфографии
+
+Ctrl+K+F (в VS Code) - выровнять отступы в коде, "причесать" код
+
+

@@ -1,0 +1,23 @@
+npm install - установить пакеты в node_modules
+npm start - собрать (запустить) сервер разработки
+
+to be in scope - быть в области видимости, быть "доступным"
+
+import React, { Component } from 'react';
+{ Component } можно на первых порах удалить
+import React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <Technologies />
+    </div>
+  );
+};
+
+App - функциональный компонент.
+
+В React v16 в файле компонента надо импортировать React:
+import React from 'react';
+А в React v17 - не надо.
