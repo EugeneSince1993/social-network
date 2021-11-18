@@ -10,7 +10,8 @@ const App = () => {
       <Header />
       <Navbar />
       <Profile />
-    </div>);
-}
+    </div>
+  );
+};
 
 export default App;
