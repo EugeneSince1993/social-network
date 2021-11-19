@@ -7,8 +7,7 @@ const Post = (props) => {
       <img src="https://img2.freepng.ru/20180920/yko/kisspng-computer-icons-portable-network-graphics-avatar-ic-5ba3c66df14d32.3051789815374598219884.jpg" alt="" />
       {props.message}
       <div>
-        <span>like </span>
-        <span>{props.like_counter}</span>
+        <span>like</span> {props.likesCount}
       </div>
     </div>
   );

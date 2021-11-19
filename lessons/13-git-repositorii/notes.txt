@@ -30,7 +30,7 @@ git checkout 1f9623bc656e2b0bf8d393b93359a854d31ca5e3
 ===
 git add .
 git commit -m "commit message"
-git push -u origin main 
+git push -u origin main
 ===
 
 git push -u origin main 
