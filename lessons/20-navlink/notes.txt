@@ -1,0 +1,31 @@
+NavLink - компонент react-router-dom
+Тег NavLink нужен для того, чтобы мы переключались на другую страницу без перезагрузки страницы.
+<NavLink to="/profile">Profile</NavLink>
+history API HTML5
+NavLink подменяет путь, а потом делает preventDefault().
+NavLink у активной ссылки a проставляет класс active.
+Чтобы задать свой класс active, используем атрибут activeClassName:
+<NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
+
+<div className={`${s.item} ${s.active}`}>
+activeClassName работает в react-router до версии 6.
+В версии 6:
+Объявляем константу:
+const isNavLinkActive = ({ isActive }) => {
+    return { color: isActive ? "gold" : "" } ;
+};
+Добавляем атрибут style со значением константы:
+<NavLink to="/profile" style={isNavLinkActive}>
+    Profile
+</NavLink>
+
+Либо состояние активной ссылки можно стилизовать в CSS с помощью псевдокласса ":focus".
+
+Официальная документация (2 вариант):
+<NavLink className={({ isActive }) => isActive ? "red" : "blue"} />
+
+Комментарии под видео урока:
+"у кого в конце 21го не работает activeClassName - необходимо заменить на
+ className = { navData => navData.isActive ? s.active : s.item }
+ + пишем правило в css для .active {color: gold;} + там же переименовываем ".item a" просто в ".item"
+ <div className={s.item}> тоже можно заменить на просто <div>, от класснэйма тут толку не будет"
