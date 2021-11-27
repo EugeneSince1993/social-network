@@ -88,4 +88,58 @@ let newArray = oldArray.map( (el) => {
     return isMaleName(el) ? 1 : 0;
 } );
 Зарефакторим еще
-12.10
+let newArray = oldArray.map( (el) => isMaleName(el) ? 1 : 0; );
+
+Когда в стрелочную функцию приходит 1 параметр, тогда можно убрать круглые скобки.
+let newArray = oldArray.map( name => isMaleName(name) ? 1 : 0; );
+
+"[ "Dmitry", "Andrew", "Viktor", "Sveta", "Sasha" ]
+Преобразуем в теги
+[ "<li>Dmitry</li>", "<li>Andrew</li>", "<li>Viktor</li>", "<li>Sveta</li>", "<li>Sasha</li>" ]
+
+let newArray = oldArray.map(name => {
+    return "<li>" + name + "</li>";
+});
+
+Синтаксис шаблонной строки (template variable).
+let newArray = oldArray.map(name => {
+    return `<li>${name}</li>`;
+});
+
+let newArray = oldArray.map(name => `<li>${name}</li>`; );
+
+[ "blabla", "hello", "hi" ]
+преобразуем в
+[ { eng: "blabla", ru: "блабла" }, { eng: "hello", ru: "привет" }, { eng: "hi", ru: "здарова" } ]
+
+let newArray = oldArray.map( el => {
+    return {
+        eng: el,
+        ru: translateIntoRu(el)
+    }
+});
+
+let newArray = oldArray.map( el => ({
+        eng: el,
+        ru: translateIntoRu(el)
+    })
+);
+
+Чтобы вернуть объект без фигурных скобок (скобок тела функции) и без ключевого слова return, надо объект обернуть в круглые скобки.
+
+let newArray = oldArray.map( word => ({
+        eng: word,
+        ru: translateIntoRu(word)
+    })
+);
+
+Чаще всего будет так - у нас исходный массив с объектами, а результирующий массив будет с компонентами (JSX-элементами):
+[ { eng: "blabla", ru: "блабла" }, { eng: "hello", ru: "привет" }, { eng: "hi", ru: "здарова" } ]
+преобразуем в
+[ <Message eng="blabla" ru="блабла" />, <Message eng="hello" ru="привет" />, <Message eng="hi" ru="здарова" /> ]
+
+let newArray = oldArray.map( el => (<Message eng={el.eng} ru={el.ru} />) );
+Или можно не обособлять компонент круглыми скобками
+let newArray = oldArray.map( el => <Message eng={el.eng} ru={el.ru} /> );
+
+18.20
