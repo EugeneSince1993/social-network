@@ -8,8 +8,8 @@ BLL - это набор файлов (слой, где лежат файлы, к
 Task
 для MyPosts.jsx и Dialogs.jsx:
 Вынести данные (массивы) в index.js (прокидывание props).
-Прокинуть массив posts из index.js в App.js, затем в Profile.jsx, затем в MyPosts.jsx.
-Передать массивы dialogs и messages из index.js в App.js, затем в Dialogs.jsx.
+Прокинуть массив posts из index.js в App.js, затем в Profile.jsx, затем в MyPosts.jsx. +
+Передать массивы dialogs и messages из index.js в App.js, затем в Dialogs.jsx. +
 ==
 Из-за Route (в старом router) это сейчас сделать не удастся, поэтому задание меняется.
 Надо просто поднять эти данные на уровень выше - в Profile.jsx.
