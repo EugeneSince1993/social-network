@@ -21,8 +21,8 @@ const App = (props) => {
                           path='/dialogs'
                           element={
                               <Dialogs
-                                dialogsArray={props.dialogsArray}
-                                messagesArray={props.messagesArray}
+                                  dialogsArray={props.dialogsArray}
+                                  messagesArray={props.messagesArray}
                               />
                           }
                       />

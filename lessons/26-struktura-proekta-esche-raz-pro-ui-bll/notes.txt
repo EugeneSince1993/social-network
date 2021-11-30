@@ -14,3 +14,17 @@ Task
 Из-за Route (в старом router) это сейчас сделать не удастся, поэтому задание меняется.
 Надо просто поднять эти данные на уровень выше - в Profile.jsx.
 ==
+react-router v6 solution
+App.js
+<Route
+  path='/dialogs'
+  element={
+      <Dialogs
+        dialogsArray={props.dialogsArray}
+        messagesArray={props.messagesArray}
+      />
+  }
+/>
+<Route path='/profile' element={<Profile postsArray={props.postsArray} />} />
+==
+
