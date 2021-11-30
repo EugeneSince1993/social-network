@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './Navbar.module.css';
-import { NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
-const isNavLinkActive = ({ isActive }) => {
-    return { color: isActive ? "gold" : "" } ;
+const isNavLinkActive = ({isActive}) => {
+  return {color: isActive ? "gold" : ""};
 };
 
 const Navbar = () => {
@@ -11,27 +11,27 @@ const Navbar = () => {
     <nav className={s.nav}>
       <div className={s.item}>
         <NavLink to="/profile" style={isNavLinkActive}>
-            Profile
+          Profile
         </NavLink>
       </div>
       <div className={s.item}>
         <NavLink to="/dialogs" style={isNavLinkActive}>
-            Messages
+          Messages
         </NavLink>
       </div>
       <div className={s.item}>
         <NavLink to="/news" style={isNavLinkActive}>
-            News
+          News
         </NavLink>
       </div>
       <div className={s.item}>
         <NavLink to="/music" style={isNavLinkActive}>
-            Music
+          Music
         </NavLink>
       </div>
       <div className={s.item}>
         <NavLink to="/settings" style={isNavLinkActive}>
-            Settings
+          Settings
         </NavLink>
       </div>
     </nav>

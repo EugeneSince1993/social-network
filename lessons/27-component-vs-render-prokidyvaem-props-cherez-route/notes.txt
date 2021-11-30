@@ -12,3 +12,4 @@ render работает быстрее component
 Компонент - функция, которая возвращает JSX.
 Higher order components
 
+Ctrl+Alt+L - выровнять отступы по умолчанию
