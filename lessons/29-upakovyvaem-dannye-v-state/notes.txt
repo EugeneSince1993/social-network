@@ -15,6 +15,17 @@ POCO, POJO
 plain object - простой объект
 У нас (на данный момент) в проекте простые объекты, а не объекты в стиле ООП.
 Task
-1. Добавить аватары на страницу Messages.
+1. Добавить аватары на страницу Messages. +
 2. Сверстать сообщения таким образом, чтобы сообщения одного пользователя были выровнены по левому краю, а сообщения другого пользователя - по правому краю (по аналогии с WhatsApp).
 3. Добавить в Sidebar блок Friends - с помощью state.
+==
+Free stock sources
+Unsplash
+==
+Template literals
+Example:
+let firstName = "John";
+let lastName = "Doe";
+
+let text = `Welcome ${firstName}, ${lastName}!`;
+==

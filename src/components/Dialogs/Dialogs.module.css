@@ -3,6 +3,8 @@
   grid-template-columns: 2fr 10fr;
 }
 
+/* Dialogs - Beginning */
+
 .dialogsItems {
   padding: 10px;
   color: white;
@@ -12,9 +14,27 @@
 
 }
 
+.dialogsItems .dialog a {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dialogsItems .dialog a img {
+  width: 40px;
+  border-radius: 30px;
+  margin-right: 10px;
+}
+
+.dialogsItems .dialog a .dialogName {
+
+}
+
 .dialogsItems .dialog.active {
   color: gold;
 }
+
+/* Dialogs - End */
 
 .messages {
   padding: 10px;
