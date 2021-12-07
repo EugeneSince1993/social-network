@@ -25,7 +25,8 @@ let state = {
       {id: 3, message: 'Yo'},
       {id: 4, message: 'Yo'},
       {id: 5, message: 'Yo'}
-    ]
+    ],
+    newMessageText: 'Howdy partner!'
   },
   sidebar: {
 
@@ -33,6 +34,8 @@ let state = {
 };
 
 window.state = state;
+
+/* Add posts in MyPosts - Start */
 
 export let addPost = () => {
   let newPost = {
@@ -49,5 +52,27 @@ export let updateNewPostText = (newText) => {
   state.profilePage.newPostText = newText;
   rerenderEntireTree(state);
 };
+
+/* Add posts in MyPosts - End */
+
+/* Add messages in Messages - Start */
+
+export let addMessage = () => {
+  let newMessage = {
+    id: 10,
+    message: state.dialogsPage.newMessageText,
+    likesCount: 0
+  };
+  state.dialogsPage.messages.push(newMessage);
+  state.dialogsPage.newMessageText = '';
+  rerenderEntireTree(state);
+};
+
+export let updateNewMessageText = (newText) => {
+  state.dialogsPage.newMessageText = newText;
+  rerenderEntireTree(state);
+};
+
+/* Add messages in Messages - End */
 
 export default state;
