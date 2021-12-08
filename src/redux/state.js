@@ -78,7 +78,7 @@ export const updateNewMessageText = (newText) => {
 /* Add messages in Messages - End */
 
 export const subscribe = (observer) => {
-
+  rerenderEntireTree = observer;
 };
 
 export default state;
