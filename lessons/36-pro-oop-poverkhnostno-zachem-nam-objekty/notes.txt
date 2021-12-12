@@ -69,14 +69,30 @@ set - устанавливать, задавать
 setter - задатчик; механизм для установки; "установщик", "устанавливающий", "задающий"
 setter - установщик
 
+setter - это метод, который устанавливает значение какому-либо свойству объекта (как правило, приватному свойству).
+setContent(value) {
+  this._content = value;
+}
+Отдельный setter создается для отдельного приватного свойства объекта.
+setter-ы и getter-ы есть и в нативном JS.
+Благодаря setter-ам у нас больше контроля над свойством - можно логировать изменения свойства (log), блокировать атаки, если контент опасный (exception).
+setContent(value) {
+  // log
+  // value is dangerous SSX throw new exception
+  this._content = value;
+}
+setter и getter нужны, чтобы инкапсулировать (скрыть) чрезмерные детали.
+
+Внутри объекта можно обращаться к его приватному свойству.
+
 getter - получатель; добытчик, приобретатель
 getter - получатель
 
 let page2 = {
   title: 'samuraiJS',
   _content: ``,
-  setContent(content) {
-    this._content = this.content;
+  setContent(value) {
+    this._content = value;
   },
   getContent() {
     return this._content;
@@ -86,7 +102,19 @@ let page2 = {
   }
 };
 
-сеттер 9.40
+приватному свойству нельзя задавать значение напрямую
+page2._content = `<div>Content about React JS</div>`;
+console.log(page2._content);
+надо задавать значение приватного свойства через setter
+page2.setContent(`<div>Content about React JS</div>`);
+console.log(page2.getContent());
+page2.render();
+
+объект store 13.08
+
+
+
+
 
 
 
