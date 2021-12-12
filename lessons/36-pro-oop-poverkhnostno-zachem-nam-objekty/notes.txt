@@ -1,3 +1,5 @@
+Краткий ликбез по ООП
+
 https://www.w3schools.com/js/js_object_methods.asp
 
 const person = {
@@ -62,6 +64,7 @@ https://ru.wikipedia.org/wiki/%D0%A2%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%B0%D0%B9%D
 В классовых компонентах мы определяем метод render().
 В React JS много магии, но вся она инкапсулирована. Мы используем только заданные свойства и методы (интерфейс), созданные в React. Например, state или setState().
 Часто мы хотим обезопасить наши данные. "Свойство объекта, ты являешься приватным. Не нужно тобой пользоваться напрямую". При создании своего объекта, чтобы создать такое свойство, мы ставим знак подчеркивания перед именем свойства. Тем самым мы говорим внешнему пользователю: "Это свойство не является интерфейсом. Не пользуйся, пожалуйста, им напрямую". Это не ограничивает внешнего человека от использования этого свойства.
+Приватные свойства (методы) созданы для внутреннего пользования (пользования внутри объекта).
 Внешний мир - это когда мы пользуемся объектом через внешнюю ссылку, например, page2._content.
 Мы не можем присвоить значение свойству "_content" напрямую, как обычно.
 Но мы можем присвоить значение этому свойству через метод-setter - setContent().
@@ -110,15 +113,65 @@ page2.setContent(`<div>Content about React JS</div>`);
 console.log(page2.getContent());
 page2.render();
 
-объект store 13.08
+getter возвращает значение приватного свойства.
 
+let store = {
+  _subscriber() {
+    console.log('no subscribers (observers)');
+  },
+  _state: {
+    firstName: 'it-incubator.by',
+    lastName: 'it-kamasutra.com'
+  },
+  getState() {
+    return this._state;
+  },
+  subscribe(observer) {
+    this._subscriber = observer;
+  },
+  setFirstName(value) {
+    this._state.firstName = value;
+    this._subscriber();
+  }
+};
 
+let state = store.getState();
+store.setFirstName('samuraiJS.com');
+state = store.getState();
 
+ООП логику и данные упаковывает в другой объект.
+Метод subscribe() - такой же, как и в нашем проекте. Благодаря нему идет перерисовка DOM.
+Функция, переданная в параметре или аргументе - это callback function.
 
+Код для внешнего наблюдателя:
 
+let state = store.getState();
+store.setFirstName('samuraiJS.com');
+state = store.getState();
 
+store.subscribe( () => {
+    let state = store.getState();
+    renderPage(state);
+  }
+);
 
+store.setFirstName('youtube.com');
 
+Объект в отношении свойств и методов является как бы управленцем.
+subscribe() берет новый state и с помощью renderPage() перерисовывает DOM, который теперь с изменениями благодаря изменениям в state.
+Мы вызываем setFirstName(), и автоматически вызывается метод subscribe().
+==
+Конкретное видео про ООП - Ликбез из тачилы:
+https://www.youtube.com/watch?v=spTyL4QK1KI&ab_channel=IT-KAMASUTRA
 
+Ликбез из тачилы (плейлист):
+https://www.youtube.com/watch?v=XsFcuM8mxco&list=PLcvhF2Wqh7DMGR08yA6oNKJ7WCM0tGd4z&ab_channel=IT-KAMASUTRA
 
+Видео про ООП (Плейлист В деталях):
+https://www.youtube.com/watch?v=kfW2_XE6-UU&list=PLcvhF2Wqh7DN2nTU8Q10SvAn4k8NpMJvh&ab_channel=IT-KAMASUTRA
+==
+Мыслить по функциональному подходу и по ООП.
+Надо кодить по ООП.
+
+Домашнее задание 19.45
 
