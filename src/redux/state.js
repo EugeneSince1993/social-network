@@ -1,5 +1,5 @@
 let store = {
-  _rerenderEntireTree () {
+  _callSubscriber () {
     console.log('State changed');
   },
   _state: {
@@ -38,7 +38,7 @@ let store = {
     return this._state;
   },
   subscribe (observer) {
-    this._rerenderEntireTree = observer;
+    this._callSubscriber = observer;
   },
   /* Add posts in MyPosts - Start */
   addPost () {
@@ -49,11 +49,11 @@ let store = {
     };
     this._state.profilePage.posts.push(newPost);
     this._state.profilePage.newPostText = '';
-    this._rerenderEntireTree(this._state);
+    this._callSubscriber(this._state);
   },
   updateNewPostText (newText) {
     this._state.profilePage.newPostText = newText;
-    this._rerenderEntireTree(this._state);
+    this._callSubscriber(this._state);
   },
   /* Add posts in MyPosts - End */
   /* Add messages in Messages - Start */
@@ -65,15 +65,15 @@ let store = {
     };
     this._state.dialogsPage.messages.push(newMessage);
     this._state.dialogsPage.newMessageText = '';
-    this._rerenderEntireTree(this._state);
+    this._callSubscriber(this._state);
   },
   updateNewMessageText (newText) {
     this._state.dialogsPage.newMessageText = newText;
-    this._rerenderEntireTree(this._state);
+    this._callSubscriber(this._state);
   }
   /* Add messages in Messages - End */
 };
 
-window.state = store.getState();
+window.store = store;
 
 export default store;
