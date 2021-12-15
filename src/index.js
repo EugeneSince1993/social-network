@@ -6,15 +6,15 @@ import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 
-let rerenderEntireTree = () => {
+let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <BrowserRouter>
       <App
-        state={store.getState()}
-        addPost={store.addPost}
-        updateNewPostText={store.updateNewPostText}
-        addMessage={store.addMessage}
-        updateNewMessageText={store.updateNewMessageText}
+        state={state}
+        addPost={store.addPost.bind(store)}
+        updateNewPostText={store.updateNewPostText.bind(store)}
+        addMessage={store.addMessage.bind(store)}
+        updateNewMessageText={store.updateNewMessageText.bind(store)}
       />
     </BrowserRouter>,
     document.getElementById('root')
