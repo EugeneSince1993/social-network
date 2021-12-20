@@ -37,4 +37,16 @@ _callSubscriber() сообщает внешнему миру о том, что s
 Меняем что-то в state, вызываем _callSubscriber().
 _callSubscriber() - простая реализация паттерна observer (subscriber).
 Рисовать схемы приложения.
-Делаем action creator 36.02
+Выделяем, например, "{messagesElements}", жмем Ctrl+Alt+J, далее Enter, и пишем div.
+ref (в textarea и т.п.) мы будем стараться избегать.
+e, event - объект события
+С помощью "e" можно достучаться до объекта, с которым произошло событие.
+e.target - в качестве target выступает textarea.
+plain object - простой объект
+
+let onNewMessageChange = (e) => {
+  let body = e.target.value;
+  props.store.dispatch(updateNewMessageBodyCreator(body));
+};
+
+48.05

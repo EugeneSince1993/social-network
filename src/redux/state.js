@@ -77,11 +77,11 @@ export const updateNewPostTextActionCreator = (text) => ({
   newText: text
 });
 
-export const sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
 
-export const updateNewMessageBodyActionCreator = (text) => ({
+export const updateNewMessageBodyCreator = (body) => ({
   type: UPDATE_NEW_MESSAGE_BODY,
-  body: text
+  body: body
 });
 
 window.store = store;
