@@ -49,4 +49,14 @@ let onNewMessageChange = (e) => {
   props.store.dispatch(updateNewMessageBodyCreator(body));
 };
 
-48.05
+Лучше передавать в объект props компонента следующие свойства:
+<Profile
+  profilePage={props.state.profilePage}
+  dispatch={props.dispatch}
+/>
+т.е., часть state, а не весь store.
+А кидать весь store в компонент - не очень правильно:
+<Dialogs
+  store={props.store}
+/>
+
