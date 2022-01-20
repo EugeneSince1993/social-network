@@ -2,7 +2,8 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
-import StoreContext from "../../StoreContext";
+import StoreContext from "../../../old-files/StoreContext-44-lesson-only";
+import {connect} from "react-redux";
 
 const DialogsContainer = () => {
 
@@ -32,5 +33,9 @@ const DialogsContainer = () => {
     </StoreContext.Consumer>
   );
 };
+
+// 10.20
+
+const SuperDialogsContainer = connect()(Dialogs);
 
 export default DialogsContainer;

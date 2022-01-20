@@ -32,7 +32,7 @@ redux - "возвращение"
 state всегда меняется только через dispatch(action).
 Redux анализирует action, смотрит совпадение. Обычно в dispatch используют не if/else if statement, а switch (switch-case) statement:
 https://www.w3schools.com/js/js_switch.asp
-объект store - менеджер состояния
+объект storeBeforeRealRedux - менеджер состояния
 _callSubscriber() сообщает внешнему миру о том, что state изменился.
 Меняем что-то в state, вызываем _callSubscriber().
 _callSubscriber() - простая реализация паттерна observer (subscriber).
@@ -46,7 +46,7 @@ plain object - простой объект
 
 let onNewMessageChange = (e) => {
   let body = e.target.value;
-  props.store.dispatch(updateNewMessageBodyCreator(body));
+  props.storeBeforeRealRedux.dispatch(updateNewMessageBodyCreator(body));
 };
 
 Лучше передавать в объект props компонента следующие свойства:
@@ -54,9 +54,9 @@ let onNewMessageChange = (e) => {
   profilePage={props.state.profilePage}
   dispatch={props.dispatch}
 />
-т.е., часть state, а не весь store.
-А кидать весь store в компонент - не очень правильно:
+т.е., часть state, а не весь storeBeforeRealRedux.
+А кидать весь storeBeforeRealRedux в компонент - не очень правильно:
 <Dialogs
-  store={props.store}
+  storeBeforeRealRedux={props.storeBeforeRealRedux}
 />
 
