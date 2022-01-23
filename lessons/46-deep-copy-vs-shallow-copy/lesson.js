@@ -29,4 +29,3 @@ b.name = 'it-incubator.by';
 b.isOnline = false;
 b.students.push('Marry');
 b.classroom.teacher.name = 'Dmitry';
-
