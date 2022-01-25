@@ -8,7 +8,7 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {Routes, Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import Users from "./components/Users/Users";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = (props) => {
   return (
@@ -27,7 +27,7 @@ const App = (props) => {
           />
           <Route
             path='/users'
-            element={<Users />}
+            element={<UsersContainer />}
           />
           <Route path='/news' element={<News/>}/>
           <Route path='/music' element={<Music/>}/>
