@@ -30,9 +30,8 @@ const profileReducer = (state = initialState, action) => {
       stateCopy.newPostText = action.newText;
       return stateCopy;
     }
-    default: {
+    default:
       return state;
-    }
   }
 };
 
@@ -44,5 +43,3 @@ export const updateNewPostTextActionCreator = (text) => ({
 });
 
 export default profileReducer;
-
-// 16.00 - profile reducer is done
