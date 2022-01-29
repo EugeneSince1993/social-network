@@ -9,7 +9,8 @@ let initialState = {
     {id: 3, message: 'Blabla', likesCount: 11},
     {id: 4, message: 'Dada', likesCount: 11}
   ],
-  newPostText: 'it-kamasutra.com'
+  newPostText: 'it-kamasutra.com',
+  profile: null
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -30,7 +31,11 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         newPostText: action.newText
       };
-    // 26.40
+    case SET_USER_PROFILE:
+      return {
+        ...state,
+        profile: action.profile
+      };
     default:
       return state;
   }
