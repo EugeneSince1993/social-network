@@ -68,5 +68,5 @@ export const setUsersTotalCountAC = (totalUsersCount) => ({
   type: SET_TOTAL_USERS_COUNT, count: totalUsersCount
 });
 export const toggleIsFetchingAC = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
-// 18.00
+
 export default usersReducer;
