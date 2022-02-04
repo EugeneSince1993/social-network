@@ -31,4 +31,3 @@ export const authAPI = {
     return instance.get('auth/me');
   }
 };
-// 12.00
