@@ -10,6 +10,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
+import {Navigate} from "react-router-dom";
 
 const App = (props) => {
   return (
@@ -20,6 +21,7 @@ const App = (props) => {
         <Routes>
           <Route path='/dialogs' element={<DialogsContainer />} />
           <Route path='/profile/:userId' element={<ProfileContainer />} />
+          <Route path='/profile' element={<Navigate to='/profile/22199' />} />
           <Route path='/users' element={<UsersContainer />} />
           <Route path='/news' element={<News/>}/>
           <Route path='/music' element={<Music/>}/>
