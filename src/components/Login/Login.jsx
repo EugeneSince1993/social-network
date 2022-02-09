@@ -64,5 +64,5 @@ const mapStateToProps = (state) => {
     isAuth: state.auth.isAuth
   };
 };
-// 26.30
+
 export default connect(mapStateToProps, { login } )(Login);
