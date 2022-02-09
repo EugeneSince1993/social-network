@@ -17,7 +17,6 @@ let AddNewPostForm = (props) => {
           validate={[ required, maxLength10 ]}
           placeholder={"Post message"}
         />
-      {/* 22.00 */}
       </div>
       <div>
         <button>Add post</button>
