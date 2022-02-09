@@ -34,6 +34,9 @@ const LoginForm = (props) => {
         /> remember me
       </div>
       <div>
+      {/* 8.45 */}
+      </div>
+      <div>
         <button>Login</button>
       </div>
     </form>
