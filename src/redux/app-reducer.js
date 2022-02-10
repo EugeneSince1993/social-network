@@ -1,4 +1,4 @@
-const SET_INITIALIZED = 'SET_INITIALIZED';
+const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 
 let initialState = {
   initialized: false
@@ -6,14 +6,20 @@ let initialState = {
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_INITIALIZED:
+    case INITIALIZED_SUCCESS:
       return {
-        ...state
-      //  14.00
+        ...state,
+        initialized: true
       };
     default:
       return state;
   }
+};
+
+export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS });
+
+export const initialize = () => (dispatch) => {
+// 16-00
 };
 
 export default appReducer;
