@@ -24,16 +24,29 @@ class App extends React.Component {
     if (!this.props.initialized) {
       return <Preloader />;
     }
-    // 30.20
+
     return (
       <div className='app-wrapper'>
         <HeaderContainer />
         <Navbar />
         <div className='app-wrapper-content'>
           <Routes>
+            <Route path='/'
+                   element={this.props.isAuth
+                     ? <Navigate to={`/profile/${this.props.authorizedUserId}`} />
+                     : <Navigate to={'/login'} />}
+            />
+            <Route path='/profile'
+                   element={this.props.isAuth
+                     ? <Navigate to={`/profile/${this.props.authorizedUserId}`} />
+                     : <Navigate to={'/login'} />}
+            />
+            <Route path='/profile/:userId'
+                   element={this.props.isAuth
+                     ? <ProfileContainer />
+                     : <Navigate to={'/login'} />}
+            />
             <Route path='/dialogs' element={<DialogsContainer />} />
-            <Route path='/profile/:userId' element={<ProfileContainer />} />
-            <Route path='/profile' element={<Navigate to='/profile/22199' />} />
             <Route path='/users' element={<UsersContainer />} />
             <Route path='/news' element={<News/>}/>
             <Route path='/music' element={<Music/>}/>
@@ -48,7 +61,9 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    initialized: state.app.initialized
+    initialized: state.app.initialized,
+    isAuth: state.auth.isAuth,
+    authorizedUserId: state.auth.userId
   };
 };
 
