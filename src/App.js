@@ -1,13 +1,11 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {Routes, Route, BrowserRouter} from "react-router-dom";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
 import {Navigate} from "react-router-dom";
@@ -15,6 +13,8 @@ import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 
 class App extends React.Component {
   componentDidMount() {
@@ -43,11 +43,20 @@ class App extends React.Component {
                      : <Navigate to={'/login'} />}
             />
             <Route path='/profile/:userId'
-                   element={this.props.isAuth
-                     ? <ProfileContainer />
+                   element={this.props.isAuth ?
+                     <Suspense fallback={<Preloader />}>
+                      <ProfileContainer />
+                     </Suspense>
                      : <Navigate to={'/login'} />}
             />
-            <Route path='/dialogs' element={<DialogsContainer />} />
+            <Route
+              element={
+                <Suspense fallback={<Preloader />}>
+                  <DialogsContainer />
+                </Suspense>
+              }
+              path='/dialogs'
+            />
             <Route path='/users' element={<UsersContainer />} />
             <Route path='/news' element={<News/>}/>
             <Route path='/music' element={<Music/>}/>
