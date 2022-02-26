@@ -1,9 +1,0 @@
-npx create-react-app my-app
-cd my-app
-npm start
-
-cd .. - подняться на папку выше
-cd my-programming\learning\2021\react-js\it-kamasutra\react-kabzda-kak-prosto\projects\01-first-project\react-kabzda-1
-
-Сервер Node.js принимает http-запросы и отправляет response
-Мы запускаем локальный сервер (написанный на Node.js) 
